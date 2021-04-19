@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbButtonModule, NbCardModule, NbAccordionModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbAccordionModule,NbLayoutModule, NbListModule,} from '@nebular/theme';
 
 
 
@@ -10,12 +10,16 @@ import { NbButtonModule, NbCardModule, NbAccordionModule } from '@nebular/theme'
     CommonModule,
     NbCardModule,
     NbButtonModule,
-    NbAccordionModule
+    NbAccordionModule,
+    NbLayoutModule,
+    NbListModule
   ],
   exports:[
     NbCardModule,
     NbButtonModule,
-    NbAccordionModule
+    NbAccordionModule,
+    NbLayoutModule,
+    NbListModule
   ]
 })
 export class SharedModule { }

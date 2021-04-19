@@ -1,0 +1,13 @@
+<ng-container *ngIf="movie">
+<h6><span id="texte">Detail du film</span>&nbsp;:{{movie.movies.title}}&nbsp;</h6>
+<p>Castings</p>
+<nb-list>
+        <nb-list-item *ngFor="let item of movie.castings">
+            <p>Acteur : {{item.actor}} Alias : {{item.role}}</p>
+        </nb-list-item>
+</nb-list>
+<p>Producteur : {{movie.movieWithDirctorAndWriter.director}}</p>
+<p>Scenariste : {{movie.movieWithDirctorAndWriter.writer}}</p>
+<button nbButton status="info" (click)="onClose()">Close</button>
+
+</ng-container>

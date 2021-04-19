@@ -1,9 +1,12 @@
 @import '../../../../themes.scss';
 
-.texte{
+nb-accordion-item-body p{
     font-weight: bold;
     font-size: 1.5em;
 }
-.titleMovie{
-    color: wheat;
+nb-accordion-item-header h4{
+    color: wheat !important;
+}
+.hiddenComponent{
+    display: none;
 }

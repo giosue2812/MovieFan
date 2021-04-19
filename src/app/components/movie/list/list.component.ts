@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { MovieForList } from 'src/app/models/MovieForList';
 import { MovieService } from '../service/movie.service';
 
@@ -9,13 +10,24 @@ import { MovieService } from '../service/movie.service';
 })
 export class ListComponent implements OnInit {
 
-  movie: MovieForList[];
+  isVisible:boolean = true;
+  obsBooleanVisible = of(this.isVisible);
+  movies: MovieForList[];
   constructor(
     private _movie: MovieService
   ) { }
 
   ngOnInit(): void {
-    this._movie.getListMovie().subscribe((data:MovieForList[]) => {this.movie = data},(error)=>{console.log(error)})
+    this.obsBooleanVisible.subscribe((data) =>{
+      this.isVisible = data;
+    })
+    this._movie.getListMovie().subscribe((data:MovieForList[]) => {this.movies = data},(error)=>{console.log(error)})
   }
 
-}
+  public onVisible(){
+    this.isVisible=false;
+  } 
+  public onClose(){
+    this.isVisible = true;
+  } 
+} 
