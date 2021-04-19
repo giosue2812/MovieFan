@@ -3,10 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { MovieRoutingModule } from './movie-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MovieComponent } from './movie.component';
+import { ListComponent } from './list/list.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    MovieComponent,
+    ListComponent
+  ],
   imports: [
     CommonModule,
     MovieRoutingModule,

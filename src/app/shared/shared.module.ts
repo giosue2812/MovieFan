@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbCardModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbAccordionModule } from '@nebular/theme';
 
 
 
@@ -8,10 +8,14 @@ import { NbCardModule } from '@nebular/theme';
   declarations: [],
   imports: [
     CommonModule,
-    NbCardModule
+    NbCardModule,
+    NbButtonModule,
+    NbAccordionModule
   ],
   exports:[
-    NbCardModule
+    NbCardModule,
+    NbButtonModule,
+    NbAccordionModule
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,16 @@
+<nb-card accent="info">
+    <nb-card-body>
+        <nb-accordion>
+            <nb-accordion-item *ngFor="let item of movie">
+                <nb-accordion-item-header>
+                    <h4 class="titleMovie">{{item.title}}</h4>
+                </nb-accordion-item-header>
+                <nb-accordion-item-body>
+                    <p class="texte">Synopsis :</p> {{item.synopsis}}
+                    <p class="texte">Année de production :</p> {{item.yearRelease}}
+                </nb-accordion-item-body>
+            </nb-accordion-item>
+        </nb-accordion>
+    </nb-card-body>
+    <nb-card-footer><button nbButton status="info">New</button></nb-card-footer>
+</nb-card>
