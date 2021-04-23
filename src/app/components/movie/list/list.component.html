@@ -3,12 +3,13 @@
         <nb-accordion>
             <nb-accordion-item *ngFor="let item of movies">
                 <nb-accordion-item-header (click)="onClose()">
-                    <h4>{{item.title}}</h4>
+                    <h4 class="">{{item.title}}</h4>
                 </nb-accordion-item-header>
                 <nb-accordion-item-body>
-                    <p>Synopsis :</p> {{item.synopsis}}
-                    <p>Année de production :</p> {{item.yearRelease}}
-                    <p><button nbButton status="info" (click)="onVisible()">Details</button></p>
+                    
+                    <p class="h5">Synopsis :<p > <p>{{item.synopsis}}</p>
+                    <p class="h5">Année de production :</p> <p>{{item.yearRelease}}</p>
+                    <p><button nbButton status="info" (click)="onVisible()">Details</button>&nbsp;<a routerLink="update/{{item.id}}" nbButton status="info">Modifier</a></p>
                     <app-detail 
                     [class]="isVisible ? 'hiddenComponent':''" [id]="item.id"
                     (closeDetail)="onClose()"></app-detail>
@@ -16,5 +17,5 @@
             </nb-accordion-item>
         </nb-accordion>
     </nb-card-body>
-    <nb-card-footer><button nbButton status="info">New</button></nb-card-footer>
+    <nb-card-footer><a routerLink="create" nbButton status="info">New</a></nb-card-footer>
 </nb-card>

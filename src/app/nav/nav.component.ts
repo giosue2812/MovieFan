@@ -21,7 +21,29 @@ export class NavComponent implements OnInit {
         children:[
           {
             title:'List',
-            link:'',
+            link:'movie',
+            icon:'list-outline'
+          },
+          {
+            title:'Create',
+            link:'movie/create',
+            icon:'plus-circle-outline'
+          },
+          {
+            title:'Custom',
+            link:'movie/custom',
+            icon:'funnel-outline'
+          }
+        ],
+      },
+      {
+        title:'Notice',
+        icon:'book-open-outline',
+        expanded:true,
+        children:[
+          {
+            title:'list',
+            link:'notice/list',
             icon:'list-outline'
           }
         ]

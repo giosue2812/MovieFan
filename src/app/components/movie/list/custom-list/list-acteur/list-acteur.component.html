@@ -1,0 +1,26 @@
+<h4 class="h4">Liste par Acteur</h4>
+
+<input [ngModel]="value" 
+(ngModelChange)="onModelChange($event)" name="acteur" nbInput  type="text" placeholder="Acteur" [nbAutocomplete]="autoNgModel"/>
+
+<nb-autocomplete #autoNgModel>
+    <nb-option *ngFor="let item of filterPerson" [value]="item.completeName">
+        {{item.completeName}}
+    </nb-option>
+    
+</nb-autocomplete>
+<button nbButton status='info' (click)="choiceActor()" type="button">Valider</button>
+
+<ng-container *ngIf="movieByActor">
+    <nb-card >
+        <nb-card-header>Liste des films pour l'acteur : {{movieByActor.person.firstName}} - {{movieByActor.person.lastName}}</nb-card-header>
+        <nb-card-body class="container" *ngFor="let item of movieByActor.movieByPerson">
+            <nb-list>
+                <nb-list-item><strong>Titre du film :</strong>{{item.title}}</nb-list-item>
+                <nb-list-item><strong>Role dans le film : </strong>{{item.role}}</nb-list-item>
+                <nb-list-item><strong>Description du film : </strong>{{item.synopsis}}</nb-list-item>
+            </nb-list>
+            <hr>
+        </nb-card-body>
+    </nb-card>
+</ng-container>

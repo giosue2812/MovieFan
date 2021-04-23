@@ -1,0 +1,9 @@
+<h4 class="h4">Liste de film par critere de selection</h4>
+<form [formGroup]="choiceListForm" (ngSubmit)="onValide()">
+    <nb-select placeholder='Quel type de list' [formControl]="choiceListForm.get('ChoiceList')">
+        <nb-option *ngFor="let item of choice" value={{item.id}}>{{item.title}}</nb-option>
+    </nb-select>
+    <p><button type="submit" nbButton status='info'>Valider</button></p>
+</form>
+<app-list-director *ngIf="choiceListToShow == 1"></app-list-director>
+<app-list-acteur *ngIf="choiceListToShow == 2"></app-list-acteur>

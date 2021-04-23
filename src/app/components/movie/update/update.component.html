@@ -1,0 +1,53 @@
+<h4 *ngIf="movie">Mise a jour du film : {{movie.movies.title}}</h4>
+<nb-card accent="info" *ngIf="movie">
+    <nb-card-body class="container">
+        <form [formGroup]="newMovieForm" (ngSubmit)="submitForm()">
+            <input type="hidden" formControlName="id" [(ngModel)]="movie.movies.id"/>
+            <div class="mb-3">
+                <input type="text" nbInput placeholder="Titre du film" formControlName="title" [(ngModel)]="movie.movies.title">
+            </div>
+            <div class="mb-3">
+                <textarea nbInput fullWidth placeholder="Description du film" formControlName="synopsis" rows="10" [(ngModel)]="movie.movies.synopsis"></textarea>
+            </div>
+            <div class="mb-3">
+                <nb-select placeholder="Select Année Production" [formControl]="newMovieForm.get('yearRelease')">
+                    <nb-option disabled>Année : {{movie.movies.yearRelease}}</nb-option>
+                    <nb-option *ngFor="let item of arrayYearRelease" value={{item}}>{{item}}</nb-option>
+                </nb-select>
+            
+                <nb-select placeholder="Select Director" [formControl]="newMovieForm.get('director')">
+                        <nb-option disabled>Producteur : {{movie.movieWithDirctorAndWriter.director}}</nb-option>
+                        <nb-option *ngFor="let item of person" value={{item.id}}>{{item.firstName}}&nbsp;{{item.lastName}}</nb-option>
+                </nb-select>
+
+                <nb-select placeholder="Select Writer" [formControl]="newMovieForm.get('writer')">
+                    <nb-option disabled>Scenariste : {{movie.movieWithDirctorAndWriter.writer}}</nb-option>
+                    <nb-option *ngFor="let item of person" value={{item.id}}>{{item.firstName}}&nbsp;{{item.lastName}}</nb-option>
+                </nb-select>
+            </div>
+            <div class="mb-3">
+                <h6>Casting</h6>
+                <div formArrayName="casting" *ngIf="movie">
+                    <div *ngFor="let item of formArrayCasting().controls;let i = index">
+                        <ng-container [formGroupName]="i">
+                            <nb-select placeholder="Select Actor" formControlName="idPerson">
+                                <nb-option *ngFor="let item of person" value={{item.id}}>{{item.firstName}}&nbsp;{{item.lastName}}</nb-option>
+                            </nb-select>
+                            <input nbInput placeholder="Role" type="text" formControlName="role">
+                        </ng-container>
+                    </div>
+                    <button nbButton status="info" type="button" (click)="addControlCasting()">+</button>
+                </div>
+            </div>
+            <button nbButton status="info" type="submit">Save</button>
+        </form>
+        <div>
+            <nb-list>
+                <h6>Castings</h6>
+                <nb-list-item *ngFor="let item of movie.castings">
+                    Acteur : {{item.actor}} - Alias : {{item.role}}&nbsp;
+                </nb-list-item>
+            </nb-list>
+        </div>
+    </nb-card-body>
+</nb-card> 
