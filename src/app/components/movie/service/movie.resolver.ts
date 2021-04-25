@@ -9,7 +9,7 @@ import { MovieForList } from 'src/app/models/Movie/MovieForList';
 import { MovieService } from './movie.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any'
 })
 export class MovieResolver implements Resolve<MovieForList[]> {
 

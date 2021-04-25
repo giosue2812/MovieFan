@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbButtonModule, NbCardModule, NbAccordionModule,NbLayoutModule, NbListModule, NbInputModule, NbSelectModule, NbAutocompleteModule, NbTreeGridModule,} from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbAccordionModule,NbLayoutModule, NbListModule, NbInputModule, NbSelectModule, NbAutocompleteModule, NbTreeGridModule, NbDialogService, NbDialogModule,} from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonService } from './services/common.service';
+import { AdminService } from './services/admin.service';
 
 
 
@@ -21,7 +22,8 @@ import { CommonService } from './services/common.service';
     NbSelectModule,
     NbAutocompleteModule,
     FormsModule,
-    NbTreeGridModule
+    NbTreeGridModule,
+    NbDialogModule.forRoot() 
   ],
   exports:[
     NbCardModule,
@@ -36,6 +38,6 @@ import { CommonService } from './services/common.service';
     FormsModule,
     NbTreeGridModule,
   ],
-  providers:[CommonService]
+  providers:[CommonService,AdminService]
 })
 export class SharedModule { }

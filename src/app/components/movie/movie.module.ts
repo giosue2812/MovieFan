@@ -11,6 +11,8 @@ import { CustomListComponent } from './list/custom-list/custom-list.component';
 import { ListDirectorComponent } from './list/custom-list/list-director/list-director.component';
 import { ListActeurComponent } from './list/custom-list/list-acteur/list-acteur.component';
 import { UpdateComponent } from './update/update.component';
+import { MovieResolver } from './service/movie.resolver';
+import { NoticeComponent } from './list/notice/notice.component';
 
 
 @NgModule({
@@ -22,13 +24,14 @@ import { UpdateComponent } from './update/update.component';
     CustomListComponent,
     ListDirectorComponent,
     ListActeurComponent,
-    UpdateComponent
+    UpdateComponent,
+    NoticeComponent
   ],
   imports: [
     CommonModule,
     MovieRoutingModule,
     SharedModule
   ],
-  providers:[MovieService]
+  providers:[MovieService,MovieResolver]
 })
 export class MovieModule { }

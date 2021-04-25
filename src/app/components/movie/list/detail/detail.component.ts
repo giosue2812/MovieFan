@@ -24,7 +24,7 @@ export class DetailComponent implements OnInit {
     })
   }
 
-  public onClose(){
+  onClose(){
     this.closeDetail.emit(true);
   }
 }

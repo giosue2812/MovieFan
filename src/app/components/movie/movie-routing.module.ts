@@ -11,6 +11,7 @@ const routes: Routes = [
   {path:"create",component:CreateComponent},
   {path:"custom",component:CustomListComponent},
   {path:"update/:id",component:UpdateComponent}
+
 ];
 
 @NgModule({

@@ -42,8 +42,20 @@ export class NavComponent implements OnInit {
         expanded:true,
         children:[
           {
-            title:'list',
-            link:'notice/list',
+            title:'List',
+            link:'notice',
+            icon:'list-outline'
+          }
+        ]
+      },
+      {
+        title:'Personnes',
+        icon:'person-outline',
+        expanded:true,
+        children:[
+          {
+            title:'List',
+            link:'person',
             icon:'list-outline'
           }
         ]

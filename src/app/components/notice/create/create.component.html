@@ -1,0 +1,17 @@
+<nb-card>
+    <nb-card-header>Ajouter un commentaire</nb-card-header>
+    <nb-card-body>
+            <div>
+                <form [formGroup]="form" (ngSubmit)="submitForm()">
+                    <input type="hidden" [(ngModel)]="idM" formControlName="idMovie"/>
+                    <input type="hidden" [(ngModel)]="idU" formControlName="idUsers"/>
+                    <div class="mb-3">
+                        <textarea nbInput fullWidth placeholder="Ajouter un commentaire" formControlName="content" rows="10"></textarea>
+                    </div>
+                    <button type="submit" nbButton status="success">Ajouter</button>
+                </form>
+            </div>
+    </nb-card-body>
+    <nb-card-footer>
+    </nb-card-footer>
+</nb-card>

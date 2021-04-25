@@ -1,0 +1,11 @@
+<h6>Liste des commentaires</h6>
+<nb-list *ngIf="notice">
+    <nb-list-item *ngFor="let item of notice.noticeByMovie">
+        <nb-card *ngIf="item.isActive">
+            <nb-card-header>{{item.email}}</nb-card-header>
+            <nb-card-body>{{item.content}}</nb-card-body>
+            <nb-card-footer>{{item.dateNotice|date:'dd-MM-yyyy'}}</nb-card-footer>
+        </nb-card>
+    </nb-list-item>
+</nb-list>
+<button nbButton status="indo" (click)="openModalCreateNotice(id)">Ajouter un commentaire</button>

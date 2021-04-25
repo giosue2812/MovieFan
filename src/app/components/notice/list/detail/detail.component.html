@@ -1,0 +1,17 @@
+<nb-card *ngIf="notice">
+    <nb-card-header>Detail de la notice</nb-card-header>
+    <nb-card-body>
+            <p>Pseudo : {{notice.user.pseudo}} - Email : {{notice.user.email}}</p>
+            <div>
+                <p>Film : {{notice.movie.title}}</p>
+                <p>Comment : {{notice.content}} - Date du comment : {{notice.dateNotice|date: 'dd-MM-yyyy'}}</p>
+                <button *ngIf="notice.isActive" (click)="switchActiveComment(notice.id)" nbButton status='danger' size="small">Delete</button>
+                <button (click)="switchActiveComment(notice.id)" nbButton *ngIf="!notice.isActive" status="success" size="small">Reactive Comment</button>
+                &nbsp;
+                <button *ngIf="notice.user.isActive" (click)="switchBanish(notice.idUsers)" nbButton status='warning' size="small">Banish User</button>
+                <button *ngIf="!notice.user.isActive" (click)="switchBanish(notice.idUsers)" nbButton status='success' size="small">Reactive User</button>
+            </div>
+    </nb-card-body>
+    <nb-card-footer>
+    </nb-card-footer>
+</nb-card>
