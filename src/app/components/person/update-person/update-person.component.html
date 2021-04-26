@@ -1,0 +1,11 @@
+<nb-card class="container">
+    <nb-card-header>Mise a jour de {{person.completeName}}</nb-card-header>
+    <nb-card-body>
+        <form  [formGroup]="form" (ngSubmit)="submitForm()">
+            <input nbInput formControlName="id" type="hidden" [ngModel]="person.id">
+            <input nbInput formControlName="firstName" type="text" [ngModel]="person.firstName">
+            <input nbInput formControlName="lastName" type="text" [ngModel]="person.lastName">
+            <button type="submit" nbButton status="info">Save</button>
+        </form>
+    </nb-card-body>
+</nb-card>
