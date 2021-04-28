@@ -1,0 +1,16 @@
+<nb-card class="container">
+    <nb-card-header>Inscription</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <input placeholder="Adresse Email" nbInput formControlName="email" type="text"/>
+            <input nbInput placeholder="Date de naissance" [nbDatepicker]="datetimePicker" formControlName="birthDate">
+            <nb-datepicker #datetimePicker></nb-datepicker>
+            <input nbInput placeholder="Password" formControlName="password" type="password"/>
+            <input nbInput placeholder="Confirm Password" formControlName="confirmPassword" type="password"/>
+            <div *ngIf="form.get('confirmPassword').errors">
+                <p>Le mot de passe n'est pas identique</p>
+            </div>
+            <button nbButton status="info" type="submit">Valider</button>
+        </form>
+    </nb-card-body>
+</nb-card>

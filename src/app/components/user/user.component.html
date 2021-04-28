@@ -1,0 +1,25 @@
+<h5>Bienvenue dans la section user</h5>
+<div class="container">
+    <table class="table table-primary table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>Pseudo</th>
+                <th>Role</th>
+                <th>Banish</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of user">
+                <td>{{item.id}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.pseudo}}</td>
+                <td>{{item.isAdmin|isAdmin}}</td>
+                <td><nb-toggle (click)="banish(item.id)" [(ngModel)]="!item.isActive"></nb-toggle></td>
+                <td><a nbButton status="info">Edit</a> - <button (click)="switchUserAdmin(item.id)" nbButton status="info">Swithch Role</button></td>   
+            </tr>
+        </tbody>
+    </table>
+    </div>

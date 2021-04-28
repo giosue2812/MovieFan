@@ -1,7 +1,12 @@
 <nb-layout>
 
   <nb-layout-header fixed>
-  <!-- Insert header here -->
+    <nb-actions>
+      <nb-action *ngIf="connected" icon="home-outline" link="user/profil"></nb-action>
+      <nb-action *ngIf="connected" icon="power-outline" (click)="test()"></nb-action>
+      <nb-action *ngIf="!connected" icon="plus-outline" link="user/register"></nb-action>
+      <nb-action *ngIf="!connected" icon="person-outline" link="user/login"></nb-action>
+    </nb-actions>
   </nb-layout-header>
 
   <nb-sidebar>

@@ -16,4 +16,7 @@ export class AdminService {
   {
     return this._http.get<boolean>(environment.url+'notice/switchNoticeActive/'+idNotice);
   }
+  switchAdminUser(iduser:number){
+    return this._http.get<boolean>(environment.url+'user/switchUser/'+iduser);
+  }
 }

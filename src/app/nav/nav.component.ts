@@ -59,6 +59,18 @@ export class NavComponent implements OnInit {
             icon:'list-outline'
           }
         ]
+      },
+      {
+        title:'Utilisateur',
+        icon:'person-outline',
+        expanded:true,
+        children:[
+          {
+            title:'Profil',
+            link:'user/profil',
+            icon:'clipboard-outline'
+          }
+        ]
       }
     ]
   }

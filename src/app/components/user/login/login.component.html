@@ -1,0 +1,10 @@
+<nb-card class="container">
+    <nb-card-header>Login</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <input placeholder="Adresse Email" nbInput formControlName="email" type="text"/>
+            <input nbInput placeholder="Password" formControlName="password" type="password"/>
+            <button nbButton status="info" type="submit">Login</button>
+        </form>
+    </nb-card-body>
+</nb-card>

@@ -2,7 +2,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NbDialogRef } from '@nebular/theme';
-import { ListComponent } from '../../movie/list/list.component';
 import { NoticeComponent } from '../../movie/list/notice/notice.component';
 import { NoticeService } from '../service/notice.service';
 
@@ -29,7 +28,7 @@ export class CreateComponent implements OnInit {
   submitForm(){
     this._service.createNotice(this.form.getRawValue()).subscribe((data)=>{
       console.log(data)
+      this.dialogRef.close();
     })
-    this.dialogRef.close();
   }
 }

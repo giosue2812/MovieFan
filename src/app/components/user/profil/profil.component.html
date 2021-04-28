@@ -1,0 +1,19 @@
+
+<nb-card class="container" *ngIf="user">
+    <nb-card-header>Profil : {{user.email}}</nb-card-header>
+    <nb-card-body>
+        Pseudo : {{user.pseudo}}
+        <div>
+            Vous avez le profil d'adminstrateur
+            <nb-card>
+                <nb-card-body>
+                    <nb-menu [items]="items"></nb-menu>
+                </nb-card-body>
+                <nb-card-footer>
+                    <a [routerLink]="['/user/reset/'+user.id]" nbButton status="info">Modifier Password</a>
+                </nb-card-footer>
+            </nb-card>
+        </div>
+
+    </nb-card-body>
+</nb-card>

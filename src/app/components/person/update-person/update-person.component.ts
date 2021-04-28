@@ -16,7 +16,7 @@ export class UpdatePersonComponent implements OnInit {
   constructor(private _builder:FormBuilder,private _service:PersonService,private _activatedRoute:ActivatedRoute,private route:Router) { }
 
   ngOnInit(): void {
-    this.person = this._activatedRoute.snapshot.data['objPerson']
+    this.person = this._activatedRoute.snapshot.data['objPerson'];
     this.form = this._builder.group({
       'id':[null],
       'firstName':[null],
