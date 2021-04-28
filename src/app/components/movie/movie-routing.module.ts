@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IsAdminGuard } from 'src/app/shared/guard/is-admin.guard';
+import { IsAuthGuard } from 'src/app/shared/guard/is-auth.guard';
 import { CreateComponent } from './create/create.component';
 import { CustomListComponent } from './list/custom-list/custom-list.component';
 import { MovieComponent } from './movie.component';
-import { MovieResolver } from './service/movie.resolver';
 import { UpdateComponent } from './update/update.component';
 
 const routes: Routes = [
-  {path:"",resolve:{monObject:MovieResolver},component:MovieComponent},
-  {path:"create",component:CreateComponent},
+  {path:"",component:MovieComponent},
+  {path:"create",canActivate:[IsAuthGuard,IsAdminGuard],component:CreateComponent},
   {path:"custom",component:CustomListComponent},
-  {path:"update/:id",component:UpdateComponent}
+  {path:"update/:id",canActivate:[IsAuthGuard,IsAdminGuard],component:UpdateComponent}
 
 ];
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NbMenuItem } from '@nebular/theme';
+import { UserService } from '../components/user/service/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,12 +9,12 @@ import { NbMenuItem } from '@nebular/theme';
 })
 export class NavComponent implements OnInit {
 
-  listeLink:NbMenuItem[] = []
-
-  constructor() { }
+  listeLinkAdmin:NbMenuItem[] = []
+  listeLinkUser:NbMenuItem[] = []
+  constructor(public _service:UserService) {}
 
   ngOnInit(): void {
-    this.listeLink = [
+    this.listeLinkAdmin = [
       {
         title:'Movie',
         icon:'film-outline',
@@ -71,6 +72,25 @@ export class NavComponent implements OnInit {
             icon:'clipboard-outline'
           }
         ]
+      }
+    ]
+    this.listeLinkUser = [
+      {
+        title:'Movie',
+        icon:'film-outline',
+        expanded:true,
+        children:[
+          {
+            title:'List',
+            link:'movie',
+            icon:'list-outline'
+          },
+          {
+            title:'Custom',
+            link:'movie/custom',
+            icon:'funnel-outline'
+          }
+        ],
       }
     ]
   }

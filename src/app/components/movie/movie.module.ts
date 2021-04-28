@@ -11,7 +11,6 @@ import { CustomListComponent } from './list/custom-list/custom-list.component';
 import { ListDirectorComponent } from './list/custom-list/list-director/list-director.component';
 import { ListActeurComponent } from './list/custom-list/list-acteur/list-acteur.component';
 import { UpdateComponent } from './update/update.component';
-import { MovieResolver } from './service/movie.resolver';
 import { NoticeComponent } from './list/notice/notice.component';
 
 
@@ -32,6 +31,6 @@ import { NoticeComponent } from './list/notice/notice.component';
     MovieRoutingModule,
     SharedModule
   ],
-  providers:[MovieService,MovieResolver]
+  providers:[MovieService]
 })
 export class MovieModule { }

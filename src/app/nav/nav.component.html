@@ -1,7 +1,15 @@
-<nb-card size="giant">
-<nb-card-body>
-    <nb-menu [items]="listeLink"></nb-menu>
-</nb-card-body>
-    
-</nb-card>
+<ng-container *ngIf="_service.isAdmin();else elseBlock">
+    <nb-card size="giant">
+        <nb-card-body>
+            <nb-menu [items]="listeLinkAdmin"></nb-menu>
+        </nb-card-body>
+    </nb-card>
+</ng-container>
+<ng-template #elseBlock>
+    <nb-card size="giant">
+        <nb-card-body>
+            <nb-menu [items]="listeLinkUser"></nb-menu>
+        </nb-card-body>    
+    </nb-card>
+</ng-template>
     

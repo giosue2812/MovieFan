@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Castings } from 'src/app/models/Movie/Castings';
 import { FormCasting } from 'src/app/models/Movie/Form/FormCasting';
 import { MovieForm } from 'src/app/models/Movie/Form/MovieForm';
@@ -19,7 +19,7 @@ export class UpdateComponent implements OnInit {
   newMovieForm:FormGroup;
   arrayYearRelease:number[] = [];
   movie:Castings;
-  constructor(private _builder:FormBuilder,private _common:CommonService,private _service:MovieService,private _activated:ActivatedRoute) { }
+  constructor(private _builder:FormBuilder,private _common:CommonService,private _service:MovieService,private _activated:ActivatedRoute,private _router:Router) { }
 
   ngOnInit(): void {
     this.initArrayYear();
@@ -64,17 +64,13 @@ export class UpdateComponent implements OnInit {
     newMovie.id = this.newMovieForm.get('id').value;
     newMovie.title = this.newMovieForm.get('title').value;
     newMovie.synopsis = this.newMovieForm.get('synopsis').value;
-    newMovie.yearRelease = this.newMovieForm.get('yearRelease').value ? null:this.movie.movieWithDirctorAndWriter.yearRelease;
-    newMovie.director = this.newMovieForm.get('director').value ? null: this.person.find((p)=>p.completeName == this.movie.movieWithDirctorAndWriter.director).id;
-    newMovie.writer = this.newMovieForm.get('writer').value ? null: this.person.find((p)=>p.completeName == this.movie.movieWithDirctorAndWriter.writer).id;
-
+    newMovie.yearRelease = this.newMovieForm.get('yearRelease').value ? this.newMovieForm.get('yearRelease').value:this.movie.movieWithDirctorAndWriter.yearRelease;
+    newMovie.director = this.newMovieForm.get('director').value ? this.newMovieForm.get('director').value: this.person.find((p)=>p.completeName == this.movie.movieWithDirctorAndWriter.director).id;
+    newMovie.writer = this.newMovieForm.get('writer').value ? this.newMovieForm.get('writer').value: this.person.find((p)=>p.completeName == this.movie.movieWithDirctorAndWriter.writer).id;
     let newCasting = new FormCasting();
     newCasting.addCastings = this.newMovieForm.value['casting'];
-
-    this._service.editMovie(newMovie,newCasting);
-  }
-
-  deleteCasting(id:number){
-    console.log(id);
+    if(newCasting.addCastings.find(p => p.idPerson) == null) this._service.editMovie(newMovie,null)
+    else this._service.editMovie(newMovie,newCasting);
+    this._router.navigate(['movie'])
   }
 }

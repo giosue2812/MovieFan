@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { PersonFormAdd } from 'src/app/models/Person/Form/PersonFormAdd';
 import { Person } from 'src/app/models/Person/Person';
 import { environment } from 'src/environments/environment';
 
@@ -16,5 +17,8 @@ export class PersonService {
   }
   updatePerson(form:Person){
     return this._http.put<boolean>(environment.url+'person',form);
+  }
+  insertPerson(form:PersonFormAdd){
+    return this._http.post<number>(environment.url+'person',form);
   }
 }

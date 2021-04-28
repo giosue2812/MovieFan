@@ -48,7 +48,7 @@ export class MovieService {
       }
     ));
   }
-  createMovie(formMovie:MovieForm,formCasting:FormCasting)
+  createMovie(formMovie:MovieForm,formCasting?:FormCasting)
   {
     return this._http.post<number>(environment.url+"movie",formMovie).subscribe((data)=>{
 
@@ -59,7 +59,7 @@ export class MovieService {
       }  
     });
   }
-  editMovie(formMovie:MovieForm,formCasting:FormCasting)
+  editMovie(formMovie:MovieForm,formCasting?:FormCasting)
   {
     return this._http.put<boolean>(environment.url+'movie',formMovie).subscribe((data)=>{
       if(data)

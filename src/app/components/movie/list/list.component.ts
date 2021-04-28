@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import { Observable, of } from 'rxjs';
 import { MovieForList } from 'src/app/models/Movie/MovieForList';
-import { Notice } from 'src/app/models/Notice/notice';
-import { NoticeByMovie } from 'src/app/models/Notice/NoticeByMovie';
-import { CreateComponent } from '../../notice/create/create.component';
-import { NoticeService } from '../../notice/service/notice.service';
+import { InsertComponent } from '../../person/insert/insert.component';
+import { UserService } from '../../user/service/user.service';
 import { MovieService } from '../service/movie.service';
-import { NoticeComponent } from './notice/notice.component';
 
 @Component({
   selector: 'app-list',
@@ -21,14 +18,17 @@ export class ListComponent implements OnInit {
   movies: MovieForList[];
   constructor(
     private _movie: MovieService,
-    private _dialogService:NbDialogService
+    public _user:UserService
   ) { }
 
   ngOnInit(): void {
+    this.loadItem();
     this.obsBooleanVisible.subscribe((data) =>{
       this.isVisible = data;
     })
-    this._movie.getListMovie().subscribe((data:MovieForList[]) => {
+  }
+  loadItem(){
+    this._movie.getListMovie().subscribe((data:MovieForList[])=>{
       this.movies = data
     },(error)=>{console.log(error)})
   }

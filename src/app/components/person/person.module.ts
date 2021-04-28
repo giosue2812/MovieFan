@@ -6,13 +6,15 @@ import { PersonComponent } from './person.component';
 import { ListComponent } from './list/list.component';
 import { UpdatePersonComponent } from './update-person/update-person.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { InsertComponent } from './insert/insert.component';
 
 
 @NgModule({
   declarations: [
     PersonComponent,
     ListComponent,
-    UpdatePersonComponent
+    UpdatePersonComponent,
+    InsertComponent
   ],
   imports: [
     CommonModule,

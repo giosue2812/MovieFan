@@ -9,7 +9,7 @@ import { User } from 'src/app/models/User/User';
 import { CommonService } from 'src/app/shared/services/common.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any'
 })
 export class UserResolver implements Resolve<User> {
   constructor(private _common:CommonService){}

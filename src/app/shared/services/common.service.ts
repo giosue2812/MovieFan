@@ -21,4 +21,5 @@ export class CommonService {
   getUser(id:number):Observable<User>{
     return this._http.get<User>(environment.url+'user/'+id);
   }
+
 }

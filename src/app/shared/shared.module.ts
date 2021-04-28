@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbButtonModule, NbCardModule, NbAccordionModule,NbLayoutModule, NbListModule, NbInputModule, NbSelectModule, NbAutocompleteModule, NbTreeGridModule, NbDialogService, NbDialogModule, NbMenuModule, NbActionsModule, NbCheckboxModule, NbToggleModule, NbDatepickerModule,} from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbAccordionModule,NbLayoutModule, NbListModule, NbInputModule, NbSelectModule, NbAutocompleteModule, NbTreeGridModule, NbDialogService, NbDialogModule, NbMenuModule, NbActionsModule, NbCheckboxModule, NbToggleModule, NbDatepickerModule, NbToastrModule,} from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonService } from './services/common.service';
 import { AdminService } from './services/admin.service';
@@ -29,7 +29,8 @@ import { IsAdminPipe } from './pipe/is-admin.pipe';
     NbMenuModule.forRoot(),
     NbActionsModule,
     NbToggleModule,
-    NbDatepickerModule.forRoot()
+    NbDatepickerModule.forRoot(),
+    NbToastrModule.forRoot()
   ],
   exports:[
     NbCardModule,

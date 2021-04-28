@@ -11,7 +11,7 @@
                     <p class="h5">Année de production :</p> <p>{{item.yearRelease}}</p>
                     <p>
                         <button nbButton status="info" (click)="onVisible()">Details</button>&nbsp;
-                        <a routerLink="update/{{item.id}}" nbButton status="info">Modifier</a>&nbsp;
+                        <a *ngIf="_user.isAdmin()" routerLink="update/{{item.id}}" nbButton status="info">Modifier</a>&nbsp;
                     </p>
                     <app-detail 
                     [class]="isVisible ? 'hiddenComponent':''" [id]="item.id"
@@ -23,5 +23,5 @@
             </nb-accordion-item>
         </nb-accordion>
     </nb-card-body>
-    <nb-card-footer><a routerLink="create" nbButton status="info">New</a></nb-card-footer>
+    <nb-card-footer *ngIf="_user.isAdmin()"><a routerLink="create" nbButton status="info">New</a></nb-card-footer>
 </nb-card>

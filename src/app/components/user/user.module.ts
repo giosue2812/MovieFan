@@ -8,6 +8,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ResetPasswordComponent } from './profil/reset-password/reset-password.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { UserService } from './service/user.service';
+import { UserResolver } from './service/user.resolver';
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { LoginComponent } from './login/login.component';
     CommonModule,
     UserRoutingModule,
     SharedModule
-  ]
+  ],
+  providers:[UserResolver]
 })
 export class UserModule { }
